@@ -1,0 +1,16 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.nova.bitsi34gb.novatours.Users">
+
+    <item
+        android:id="@+id/signout"
+        android:orderInCategory="100"
+        android:title="Signout"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/changpass"
+        android:orderInCategory="100"
+        android:title="Change password"
+        app:showAsAction="never"/>
+</menu>

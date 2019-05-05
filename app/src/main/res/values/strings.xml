@@ -1,0 +1,54 @@
+<resources>
+    <string name="app_name">V2E</string>
+    <string name="prompt_userid">UserId</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="title_activity_users">Users</string>
+    <string name="title_activity_user_detail_for_admin">UserDetailForAdmin</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="title_activity_user_details">UserDetails</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+    <string name="tab_text_3">Tab 3</string>
+    <string name="nameerror">Enter a valid name minimum 3 characters</string>
+    <string name="userid">Enter a valid user name</string>
+    <string name="passworderror">Enter a valid password</string>
+    <string name="earningserror">Enter a valid earnings</string>
+    <string name="error">Enter a valid password</string>
+    <string name="adhaarno">Enter a valid adharno name</string>
+    <string name="onlyinlowercase">Enter a valid user name</string>
+    <string name="onlyusecharactersandnumbers">Enter a valid user name</string>
+    <string name="gendererror">Enter a valid gender male or female in lowercase</string>
+    <string name="maritalerror">Enter a valid status like single or married</string>
+    <string name="dateofbirtherror">Enter a valid date</string>
+    <string name="minimum6letters">Enter a valid user name</string>
+    <string name="emailerror">Enter a valid email</string>
+    <string name="mobileerror">Enter a valid mobile</string>
+    <string name="dateerror">Enter a valid date</string>
+    <string name="ageerror">Enter a valid age</string>
+    <string name="panerror">pan no is required</string>
+    <string name="phoneerror">phone no is required </string>
+    <string name="rankerror">Enter only lowercase "gold" or "silver" or "platinum" values</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_user_detailed">UserDetailed</string>
+    <string-array name="gender">
+        <item>Male</item>
+        <item>Female</item>
+        <item>Others</item>
+
+    </string-array>
+    <string-array name="rank">
+        <item>gold</item>
+        <item>silver</item>
+        <item>platinum</item>
+
+    </string-array>
+    <string-array name="marital">
+        <item>Single</item>
+        <item>Married</item>
+
+    </string-array>
+</resources>

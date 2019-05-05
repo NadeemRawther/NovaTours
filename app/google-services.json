@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "56784603059",
+    "firebase_url": "https://novatours-9e426.firebaseio.com",
+    "project_id": "novatours-9e426",
+    "storage_bucket": "novatours-9e426.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:56784603059:android:bd800412250ac462",
+        "android_client_info": {
+          "package_name": "com.nova.bitsi34gb.novatours"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "56784603059-io1jg52rbvdm855qqkmu1871t1j05n4j.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.nova.bitsi34gb.novatours",
+            "certificate_hash": "c41a44403edcb5f8679c08aafd3e4f5d969ab96b"
+          }
+        },
+        {
+          "client_id": "56784603059-tiro9r1covr8joeaf04l368chvbtl2to.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB44NKLGWJFg8BmkhQ12nUSGWIWiTZcNjA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "56784603059-tiro9r1covr8joeaf04l368chvbtl2to.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

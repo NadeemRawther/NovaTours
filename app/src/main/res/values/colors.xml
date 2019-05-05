@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#0F0B0B</color>
+    <color name="colorblue">#91EAFE</color>
+    <color name="colorwhite">#FFFFFF</color>
+    <color name="colormy">#3c303a</color>
+    <color name = "gold">#FFD700</color>
+    <color name = "silver">#C0C0C0</color>
+    <color name="platinum">#e2e3e5</color>
+    <color name="gradcolor">#33ccff</color>
+    <color name="gradcolor2">#ff99cc</color>
+
+</resources>
