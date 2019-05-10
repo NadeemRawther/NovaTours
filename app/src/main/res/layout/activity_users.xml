@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/inside1"
     tools:context=".Users">
-    <Button
+    <ImageButton
         android:id="@+id/button2"
         android:layout_width="65dp"
         android:layout_height="65dp"
@@ -15,12 +15,12 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:background="@mipmap/contact"
+        app:srcCompat = "@mipmap/contact"
         app:layout_constraintBottom_toTopOf="@+id/guideline6"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintStart_toStartOf="@+id/guideline9"
         app:layout_constraintTop_toTopOf="@+id/guideline4" />
-    <Button
+    <ImageButton
         android:id="@+id/button3"
         android:layout_width="65dp"
         android:layout_height="65dp"
@@ -28,14 +28,14 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:background="@mipmap/binarys"
+        app:srcCompat ="@mipmap/binarys"
         app:layout_constraintBottom_toTopOf="@+id/guideline5"
         app:layout_constraintEnd_toStartOf="@+id/guideline"
         app:layout_constraintHorizontal_bias="0.459"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
         app:layout_constraintTop_toTopOf="@+id/guideline11"
         app:layout_constraintVertical_bias="1.0" />
-    <Button
+    <ImageButton
         android:id="@+id/button4"
         android:layout_width="65dp"
         android:layout_height="65dp"
@@ -43,14 +43,15 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:background="@mipmap/tour"
+        app:srcCompat = "@mipmap/tour"
+
         app:layout_constraintBottom_toTopOf="@+id/guideline5"
         app:layout_constraintEnd_toStartOf="@+id/guideline8"
         app:layout_constraintHorizontal_bias="0.384"
         app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toTopOf="@+id/guideline11"
         app:layout_constraintVertical_bias="1.0" />
-    <Button
+    <ImageButton
         android:id="@+id/button5"
         android:layout_width="65dp"
         android:layout_height="65dp"
@@ -58,12 +59,12 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:background="@mipmap/tds"
+        app:srcCompat = "@mipmap/tds"
         app:layout_constraintBottom_toTopOf="@+id/guideline7"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintStart_toStartOf="@+id/guideline9"
         app:layout_constraintTop_toTopOf="@+id/guideline3" />
-    <Button
+    <ImageButton
         android:id="@+id/button6"
         android:layout_width="65dp"
         android:layout_height="65dp"
@@ -71,12 +72,12 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:background="@mipmap/report"
+        app:srcCompat="@mipmap/report"
         app:layout_constraintBottom_toTopOf="@+id/guideline6"
         app:layout_constraintEnd_toStartOf="@+id/guideline"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
         app:layout_constraintTop_toTopOf="@+id/guideline4" />
-    <Button
+    <ImageButton
         android:id="@+id/button7"
         android:layout_width="65dp"
         android:layout_height="65dp"
@@ -84,12 +85,13 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:background="@mipmap/bank"
+        app:srcCompat ="@mipmap/bank"
+
         app:layout_constraintBottom_toTopOf="@+id/guideline6"
         app:layout_constraintEnd_toStartOf="@+id/guideline8"
         app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toTopOf="@+id/guideline4" />
-    <Button
+    <ImageButton
         android:id="@+id/button8"
         android:layout_width="65dp"
         android:layout_height="65dp"
@@ -97,14 +99,14 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="8dp"
-        android:background="@mipmap/profile"
+        app:srcCompat ="@mipmap/profile"
         app:layout_constraintBottom_toTopOf="@+id/guideline5"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/guideline9"
         app:layout_constraintTop_toTopOf="@+id/guideline11"
         app:layout_constraintVertical_bias="1.0" />
-    <Button
+    <ImageButton
         android:id="@+id/button9"
         android:layout_width="65dp"
         android:layout_height="65dp"
@@ -112,7 +114,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:background="@mipmap/dts"
+        app:srcCompat = "@mipmap/dts"
         app:layout_constraintBottom_toTopOf="@+id/guideline7"
         app:layout_constraintEnd_toStartOf="@+id/guideline"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
@@ -302,7 +304,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:src="@mipmap/menuic"
+        app:srcCompat = "@mipmap/menuic"
         app:layout_constraintBottom_toTopOf="@+id/guideline11"
         app:layout_constraintEnd_toStartOf="@+id/guideline8"
         app:layout_constraintHorizontal_bias="1.0"
@@ -322,7 +324,7 @@
         android:id="@+id/barrier"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:barrierDirection="top" />
+         />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"
@@ -342,31 +344,31 @@
         android:id="@+id/barrier2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:barrierDirection="left" />
+        />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/barrier3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:barrierDirection="left" />
+        />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/barrier4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:barrierDirection="top" />
+         />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/barrier5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:barrierDirection="top" />
+        />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/barrier6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:barrierDirection="top" />
+         />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline4"
@@ -379,13 +381,13 @@
         android:id="@+id/barrier7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:barrierDirection="left" />
+         />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/barrier8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:barrierDirection="top" />
+     />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline5"
@@ -419,7 +421,7 @@
         android:id="@+id/barrier9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:barrierDirection="left" />
+         />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline9"
@@ -441,5 +443,37 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.28" />
+
+    <ImageButton
+        android:id="@+id/seller"
+        android:layout_width="80dp"
+        android:layout_height="84dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="Button"
+        app:layout_constraintBottom_toTopOf="@+id/guideline7"
+        app:layout_constraintEnd_toStartOf="@+id/guideline8"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toTopOf="@+id/guideline3"
+        app:srcCompat="@mipmap/contact" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="Seller"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@color/colorAccent"
+        app:layout_constraintBottom_toTopOf="@+id/guideline10"
+        app:layout_constraintEnd_toStartOf="@+id/guideline8"
+        app:layout_constraintHorizontal_bias="0.555"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toTopOf="@+id/guideline7"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,7 +8,9 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -29,18 +31,25 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+
+import static android.content.ContentValues.TAG;
 
 
 public class Users extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener{
     TextView nameView;
+    SharedPreferences preferences ;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     SharedPreferences sharedPref;
     ArrayList<NameAndEarnings> object = new ArrayList<>();
+    static HashMap<String,String> hashMap = new HashMap<>();
     static int counts;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_users);
+        preferences = getApplicationContext().getSharedPreferences("Mypref", Context.MODE_PRIVATE);
         TextView nameView = findViewById(R.id.textView);
         TextView userId = findViewById(R.id.textView2);
 
@@ -48,13 +57,14 @@ if (!isNetworkAvailable()){
 
     Toast.makeText(Users.this,"Internet not available please connect ",Toast.LENGTH_LONG).show();
 }
+       getDatafrom();
         sharedPref = getApplicationContext().getSharedPreferences("Mypref",Context.MODE_PRIVATE);
         //findcount(sharedPref.getString("userid","d"));
         String name = sharedPref.getString("name","name");
         String userid = sharedPref.getString("userid","userid");
         nameView.setText(name);
         userId.setText(userid);
-        Button button7 = findViewById(R.id.button7);
+        ImageButton button7 = findViewById(R.id.button7);
         button7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -62,7 +72,7 @@ if (!isNetworkAvailable()){
                 startActivity(intent);
             }
         });
-        Button button6 = findViewById(R.id.button6);
+        ImageButton button6 = findViewById(R.id.button6);
         button6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -71,7 +81,7 @@ if (!isNetworkAvailable()){
             }
         });
 
-        Button button8 = findViewById(R.id.button8);
+        ImageButton button8 = findViewById(R.id.button8);
         button8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -79,7 +89,7 @@ if (!isNetworkAvailable()){
                 startActivity(intent);
             }
         });
-        Button button5 = findViewById(R.id.button5);
+        ImageButton button5 = findViewById(R.id.button5);
         button5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -87,7 +97,7 @@ if (!isNetworkAvailable()){
                 startActivity(intent);
             }
         });
-        Button button9 = findViewById(R.id.button9);
+        ImageButton button9 = findViewById(R.id.button9);
         button9.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -95,7 +105,7 @@ if (!isNetworkAvailable()){
                 startActivity(intent);
             }
         });
-        Button button2 = findViewById(R.id.button2);
+        ImageButton button2 = findViewById(R.id.button2);
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -103,7 +113,7 @@ if (!isNetworkAvailable()){
                 startActivity(intent);
             }
         });
-        Button button4 = findViewById(R.id.button4);
+        ImageButton button4 = findViewById(R.id.button4);
         button4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -111,7 +121,7 @@ if (!isNetworkAvailable()){
                 startActivity(intent);
             }
         });
-        Button button3 = findViewById(R.id.button3);
+        ImageButton button3 = findViewById(R.id.button3);
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -136,7 +146,80 @@ if (!isNetworkAvailable()){
             }
         });
 
+ImageButton button1 = (ImageButton)findViewById(R.id.seller);
+button1.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(Users.this);
+        View mView = View.inflate(Users.this,R.layout.formforseller,null);
+        /*editText = (EditText)mView.findViewById(R.id.editText36);*/
+        builder.setView(mView);
+        final AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+        final EditText nameofseller = mView.findViewById(R.id.nameofseller);
+        final EditText productofseller = mView.findViewById(R.id.productofseller);
+        Button button2 = mView.findViewById(R.id.buttonforseller);
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String productname;
+                String sellername;
 
+                if(nameofseller.getText().toString()!= null && productofseller.getText().toString()!= null) {
+                    sellername = nameofseller.getText().toString();
+                    productname = productofseller.getText().toString();
+                    sendforseller(sellername,productname,preferences.getString("userid","0").toUpperCase());
+                    alertDialog.cancel();
+                }
+                else {
+                    Toast.makeText(Users.this,"Fill the old and new password coloumns ",Toast.LENGTH_LONG);
+                }
+            }
+        });
+
+
+
+
+    }
+});
+
+    }
+    public void sendforseller(String selle,String prod,String name){
+        String emails = hashMap.get("aboutseller");
+        Intent intent = new Intent (Intent.ACTION_SEND);
+        intent.setType("message/rfc822");
+        intent.putExtra(Intent.EXTRA_EMAIL, new String[]{emails});
+        intent.putExtra(Intent.EXTRA_SUBJECT, name);
+        intent.putExtra(Intent.EXTRA_TEXT, selle+ "  "+ prod);
+        intent.setPackage("com.google.android.gm");
+        if (intent.resolveActivity(getPackageManager())!=null)
+            startActivity(intent);
+        else
+            Toast.makeText(this,"Gmail App is not installed",Toast.LENGTH_SHORT).show();
+
+
+
+
+
+
+
+    }
+    public void getDatafrom(){
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        final DatabaseReference myRef = database.getReference("contact" );
+        myRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot dataSnapshot1: dataSnapshot.getChildren()){
+                    hashMap.put(dataSnapshot1.getKey(),dataSnapshot1.getValue().toString());
+                }
+            }
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+                Log.w(TAG, "Failed to read value.", error.toException());
+            }
+        });
     }
     @Override
     public boolean onMenuItemClick(MenuItem item) {

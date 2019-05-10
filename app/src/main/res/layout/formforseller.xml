@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/designforform">
+
+
+    <TextView
+        android:id="@+id/titleforseller"
+        android:layout_width="wrap_content"
+        android:layout_height="23dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="FORM"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/guid7"
+        app:layout_constraintEnd_toStartOf="@+id/guid2"
+        app:layout_constraintStart_toStartOf="@+id/guid1"
+        app:layout_constraintTop_toTopOf="@+id/guid8" />
+
+    <EditText
+        android:id="@+id/nameofseller"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:ems="10"
+        android:hint="Name of Seller"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/guid4"
+        app:layout_constraintEnd_toStartOf="@+id/guid2"
+        app:layout_constraintHorizontal_bias="0.558"
+        app:layout_constraintStart_toStartOf="@+id/guid1"
+        app:layout_constraintTop_toTopOf="@+id/guid7" />
+
+    <EditText
+        android:id="@+id/productofseller"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:ems="10"
+        android:hint="Product"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/guid5"
+        app:layout_constraintEnd_toStartOf="@+id/guid2"
+        app:layout_constraintStart_toStartOf="@+id/guid1"
+        app:layout_constraintTop_toTopOf="@+id/guid4" />
+
+    <EditText
+        android:id="@+id/emailofseller"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:ems="10"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        app:layout_constraintBottom_toTopOf="@+id/guid6"
+        app:layout_constraintEnd_toStartOf="@+id/guid2"
+        app:layout_constraintStart_toStartOf="@+id/guid1"
+        app:layout_constraintTop_toTopOf="@+id/guid5" />
+
+    <Button
+        android:id="@+id/buttonforseller"
+        android:layout_width="189dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="Submit"
+        app:layout_constraintBottom_toTopOf="@+id/guid9"
+        app:layout_constraintEnd_toStartOf="@+id/guid2"
+        app:layout_constraintStart_toStartOf="@+id/guid1"
+        app:layout_constraintTop_toTopOf="@+id/guid6" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guid1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.05109489" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guid2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.96107054" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guid4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.29274964" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guid5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.4391245" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guid6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.6128591" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guid7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.16552667" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guid8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.05" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guid9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.79480165" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
