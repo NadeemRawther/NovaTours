@@ -32,6 +32,11 @@ public class RecycleForImage extends  RecyclerView.Adapter<RecycleForImage.ViewH
     DatabaseReference myRef = database.getReference("images" );
     private Context context;
     List<String> list;
+    DatabaseReference myRef1 = database.getReference("images/images1");
+    DatabaseReference myRef2 = database.getReference("images/images2");
+    DatabaseReference myRef3 = database.getReference("images/images3");
+    DatabaseReference myRef4 = database.getReference("images/images4");
+    DatabaseReference myRef5 = database.getReference("images/images5");
     StorageReference storageReference = FirebaseStorage.getInstance().getReference();
     // Reference to an image file in Cloud Storage
     public RecycleForImage(Context context,List<String> list1) {

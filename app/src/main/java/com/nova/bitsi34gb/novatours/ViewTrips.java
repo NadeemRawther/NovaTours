@@ -30,9 +30,15 @@ public class ViewTrips extends Activity {
         setContentView(R.layout.activity_view_trips);
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("images");
+
+
         final RecyclerView bikeRecycler = (RecyclerView)findViewById(R.id.recylerimage);
         bikeRecycler.setHasFixedSize(true);
         //nce to an image file in Cloud Storage
+
+
+
+
 
 
         list = new ArrayList<>();

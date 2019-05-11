@@ -2,30 +2,34 @@ package com.nova.bitsi34gb.novatours;
 
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
-
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.Toast;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-
 import static android.content.ContentValues.TAG;
 
 public class OtherExtraFeatures extends Activity {
     private ProgressDialog progressDialog;
-    SharedPreferences sharedPref;
+    SharedPreferences preferences ;
     static List<String> list;
     static List<String> list1;
     static HashMap<String,String> hashMap = new HashMap<>();
@@ -34,6 +38,7 @@ public class OtherExtraFeatures extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_other_extra_features);
         FirebaseDatabase database = FirebaseDatabase.getInstance();
+        preferences = getApplicationContext().getSharedPreferences("Mypref", Context.MODE_PRIVATE);
         DatabaseReference myRef = database.getReference("imagesfordts");
          list = new ArrayList<>();
          list1 = new ArrayList<>();
@@ -71,7 +76,39 @@ public class OtherExtraFeatures extends Activity {
             }
         });
 
+        ImageButton sellerbut = (ImageButton)findViewById(R.id.sellerbutt);
+        sellerbut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(OtherExtraFeatures.this);
+                View mView = View.inflate(OtherExtraFeatures.this,R.layout.formforseller,null);
+                /*editText = (EditText)mView.findViewById(R.id.editText36);*/
+                builder.setView(mView);
+                final AlertDialog alertDialog = builder.create();
+                alertDialog.show();
+                final EditText nameofseller = mView.findViewById(R.id.nameofseller);
+                final EditText productofseller = mView.findViewById(R.id.productofseller);
+                Button button2 = mView.findViewById(R.id.buttonforseller);
+                button2.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        String productname;
+                        String sellername;
 
+                        if(nameofseller.getText().toString()!= null && productofseller.getText().toString()!= null) {
+                            sellername = nameofseller.getText().toString();
+                            productname = productofseller.getText().toString();
+                            sendforseller(sellername,productname,preferences.getString("userid","0").toUpperCase());
+                            alertDialog.cancel();
+                        }
+                        else {
+                            Toast.makeText(OtherExtraFeatures.this,"Fill the old and new password coloumns ",Toast.LENGTH_LONG);
+                        }
+                    }
+                });
+
+            }
+        });
 
     }
     public void getDatafrom(){
@@ -95,6 +132,20 @@ public class OtherExtraFeatures extends Activity {
                 Log.w(TAG, "Failed to read value.", error.toException());
             }
         });
+    }
+
+    public void sendforseller(String selle,String prod,String name){
+        String emails = hashMap.get("aboutseller");
+        Intent intent = new Intent (Intent.ACTION_SEND);
+        intent.setType("message/rfc822");
+        intent.putExtra(Intent.EXTRA_EMAIL, new String[]{emails});
+        intent.putExtra(Intent.EXTRA_SUBJECT, name);
+        intent.putExtra(Intent.EXTRA_TEXT, selle+ "  "+ prod);
+        intent.setPackage("com.google.android.gm");
+        if (intent.resolveActivity(getPackageManager())!=null)
+            startActivity(intent);
+        else
+            Toast.makeText(this,"Gmail App is not installed",Toast.LENGTH_SHORT).show();
     }
     @Override
     public void onDestroy() {

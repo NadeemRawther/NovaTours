@@ -1,5 +1,7 @@
 package com.nova.bitsi34gb.novatours;
 
+import android.animation.ArgbEvaluator;
+import android.animation.ObjectAnimator;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -14,6 +16,7 @@ import android.util.Log;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -64,6 +67,7 @@ if (!isNetworkAvailable()){
         String userid = sharedPref.getString("userid","userid");
         nameView.setText(name);
         userId.setText(userid);
+
         ImageButton button7 = findViewById(R.id.button7);
         button7.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -114,23 +118,44 @@ if (!isNetworkAvailable()){
             }
         });
         ImageButton button4 = findViewById(R.id.button4);
+        ObjectAnimator anim = ObjectAnimator.ofInt(button4, "backgroundColor", Color.WHITE, Color.RED,
+                Color.WHITE);
+        anim.setDuration(1500);
+        anim.setEvaluator(new ArgbEvaluator());
+        anim.setRepeatCount(Animation.INFINITE);
         button4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                anim.cancel();
                 Intent intent = new Intent (Users.this, ViewTrips.class);
                 startActivity(intent);
+            }
+        });
+
+
+
+
+        DatabaseReference myRef = database.getReference("images");
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                manageBlinkEffect(anim);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
             }
         });
         ImageButton button3 = findViewById(R.id.button3);
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 Intent intent = new Intent (Users.this, Binary.class);
-
                 startActivity(intent);
             }
         });
+
         ImageButton button = findViewById(R.id.menuicu);
         button.setBackgroundColor(Color.TRANSPARENT);
         button.setOnClickListener(new View.OnClickListener() {
@@ -138,7 +163,6 @@ if (!isNetworkAvailable()){
             public void onClick(View v) {
 
                 PopupMenu popup = new PopupMenu(Users.this, v);
-
                 MenuInflater inflater = popup.getMenuInflater();
                 popup.setOnMenuItemClickListener(Users.this);
                 inflater.inflate(R.menu.menu_user_detail_for_admin, popup.getMenu());
@@ -146,62 +170,12 @@ if (!isNetworkAvailable()){
             }
         });
 
-ImageButton button1 = (ImageButton)findViewById(R.id.seller);
-button1.setOnClickListener(new View.OnClickListener() {
-    @Override
-    public void onClick(View v) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(Users.this);
-        View mView = View.inflate(Users.this,R.layout.formforseller,null);
-        /*editText = (EditText)mView.findViewById(R.id.editText36);*/
-        builder.setView(mView);
-        final AlertDialog alertDialog = builder.create();
-        alertDialog.show();
-        final EditText nameofseller = mView.findViewById(R.id.nameofseller);
-        final EditText productofseller = mView.findViewById(R.id.productofseller);
-        Button button2 = mView.findViewById(R.id.buttonforseller);
-        button2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String productname;
-                String sellername;
-
-                if(nameofseller.getText().toString()!= null && productofseller.getText().toString()!= null) {
-                    sellername = nameofseller.getText().toString();
-                    productname = productofseller.getText().toString();
-                    sendforseller(sellername,productname,preferences.getString("userid","0").toUpperCase());
-                    alertDialog.cancel();
-                }
-                else {
-                    Toast.makeText(Users.this,"Fill the old and new password coloumns ",Toast.LENGTH_LONG);
-                }
-            }
-        });
-
-
-
 
     }
-});
-
-    }
-    public void sendforseller(String selle,String prod,String name){
-        String emails = hashMap.get("aboutseller");
-        Intent intent = new Intent (Intent.ACTION_SEND);
-        intent.setType("message/rfc822");
-        intent.putExtra(Intent.EXTRA_EMAIL, new String[]{emails});
-        intent.putExtra(Intent.EXTRA_SUBJECT, name);
-        intent.putExtra(Intent.EXTRA_TEXT, selle+ "  "+ prod);
-        intent.setPackage("com.google.android.gm");
-        if (intent.resolveActivity(getPackageManager())!=null)
-            startActivity(intent);
-        else
-            Toast.makeText(this,"Gmail App is not installed",Toast.LENGTH_SHORT).show();
+    private void manageBlinkEffect(ObjectAnimator anim) {
 
 
-
-
-
-
+        anim.start();
 
     }
     public void getDatafrom(){
@@ -240,7 +214,6 @@ button1.setOnClickListener(new View.OnClickListener() {
             case R.id.changpass:
                 AlertDialog.Builder builder = new AlertDialog.Builder(Users.this);
                 View mView = View.inflate(Users.this,R.layout.formforchangingpass,null);
-                /*editText = (EditText)mView.findViewById(R.id.editText36);*/
                 builder.setView(mView);
                 final AlertDialog alertDialog = builder.create();
                 alertDialog.show();
